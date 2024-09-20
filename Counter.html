@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            }
+            #count{
+                width: 80%;
+                margin: 40px auto;
+                background-color: #f2f2f2;
+                padding: 20px;
+                border: 1px solid #ccc;
+                border-radius: 10px;
+                
+                }
+                #btngroup{
+                    padding:10px 20px;
+                    text-align: center;
+                    
+                }
+                .btn{
+                    padding: 10px 20px;
+                    margin: 10px;
+                    border: none;
+                    border-radius: 10px;
+                    background-color: #4CAF50;
+                    color: #fff;
+                    cursor: pointer;
+                    }
+                    .btn:hover{
+                        background-color: #3e8e41;
+                        }
+                        .btn:active{
+                            background-color: #2e6e3f;
+                            }
+
+
+                
+
+    </style>
+</head>
+<body>
+   <h1>Welcome to Counter!</h1>
+   <h1 id="count">0</h1> 
+   <div id="btngroup">
+   <button id="increment" class="btn">Increment</button>
+   <button id="decrement" class="btn">Dercement</button>
+   <button id="reset" class="btn">Reset</button>
+</div>
+<script>
+    let count = 0;
+    document.getElementById("increment").onclick=function(){
+        count++;
+        document.getElementById("count").textContent=count;
+    }
+    document.getElementById("decrement").onclick=function(){
+        count--;
+        document.getElementById("count").textContent=count;
+    }
+    document.getElementById("reset").onclick=function(){
+        count=0;
+        document.getElementById("count").textContent=count;
+    }
+</script>
+</body>
+</html>
