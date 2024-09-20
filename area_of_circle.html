@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Area of circle calculation:</h2>
+    <label for="">Radius:</label>
+    <input type="number" id="radius" ><br><br>
+    <input type="submit" id="submit" value="Area">
+    <p id="result" style="color:brown"></p>
+    <script>
+        let area,radius;
+        const pi=3.14;
+        document.getElementById("submit").onclick=function(){
+         radius=document.getElementById("radius").value;
+         area=pi*radius*radius;
+         document.getElementById("result").textContent="The area of circle is: "+area;
+        }
+    </script>
+
+</body>
+</html>
