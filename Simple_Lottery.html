@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+
+        }
+       #roll{
+        border:none;
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid rgb(247, 243, 243);
+        background-color: rgb(12, 143, 67);
+       } 
+       #roll:hover{
+        background-color: rgb(240, 176, 176);
+        }
+        #win{
+            padding:10px;
+            border-radius: 10px;
+            border: 1px solid rgb(243, 243, 243);
+            background-color: rgb(191, 191, 246);
+            display:none;
+            animation: bounce 1s infinite; /* Apply bounce animation */
+            color: rgb(0, 0, 0);
+        }
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+                color: rgb(0, 0, 0);
+            }
+            50% {
+                transform: translateY(-10px); /* Move text up */
+                color: rgb(255, 0, 0); /* Change color to red */
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+    <h1 id="h">Apply Your Luck!</h1>
+    <button id="roll">Roll the Dice</button>
+    <p id="result"></p>
+    <h2 id="win">You got a 7! You won!🎈🥳</h2>
+    <script>
+        const rollButton = document.getElementById('roll');
+        const winMessage=document.getElementById('win');
+        document.getElementById("roll").onclick=function(){
+            let random = Math.floor(Math.random() * 7) + 1;
+            document.getElementById("result").textContent = "You rolled a " + random;
+            if(random==7){
+                winMessage.style.display = "block";
+                  
+            }
+            else {
+                // Clear the win message if the roll is not 6
+                winMessage.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
