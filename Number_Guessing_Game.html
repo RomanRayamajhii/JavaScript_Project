@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: rgb(234, 164, 139);
+            }
+            .container{
+                
+              
+                align-items: center;
+                justify-content: center;
+                padding:10px;
+                background-color: aliceblue;
+                border-radius: 10px;
+                box-shadow: 0px 0px 10px rgba(0,0,0
+                );
+                width: 80%; 
+                max-width: 500px;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                margin: auto; 
+
+            }
+            
+            h2{
+
+                display: block;
+                padding: 15px;
+                text-align: center;
+                color: brown;
+                background-color:  aliceblue;; 
+                border-radius: 10px;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.406); 
+                margin:10%;
+                
+            }
+            h1{
+                display: block;
+                padding: 20px;
+                text-align: center;
+                color: brown;
+                margin-top: 3%;
+            }
+            input{
+           
+                padding: 10px;
+                margin-top: 10px;
+                border: none;
+                border-radius: 10px;
+                box-shadow: 0px 0px 10px rgb(144, 138, 138);
+            }
+            #btn
+            {
+               
+                font-size:large ;
+                padding:10px;
+                margin: 10px;
+                border: none;
+                border-radius: 10px;
+                box-shadow: 0px 0px 10px rgb(144, 138,
+                );
+                background: linear-gradient(135deg, #aae8fc, #f0dbfd);
+            }
+            p{
+                font-size: 20px;
+                color: brown;
+                margin-top: 10px;
+                padding-bottom: 10px;
+
+                text-align: center;
+                
+                }
+            
+    </style>
+</head>
+<body>
+    <div class="container">
+   
+    <h2>Guess the number 1-100</h2>
+    <input type="number"  id="guessnum" placeholder="Enter the number">
+    <input type="submit" id="btn" value="Submit">
+    <h1 id="result"></h1>
+    <p id="try"> </p>
+    
+</div>
+    <script>
+        let count=0; 
+        document.getElementById("btn").onclick=function(){
+        let number=document.getElementById("guessnum").value;
+        count++;
+        if(number> 100 || number < 1 || number==""){
+        window.alert("Please enter a number between 1 and 100");
+    }
+    else if(number==30){
+        document.getElementById("result").textContent="Congrulation your guess is correct!!!!🎈🥳."+"you attempt => "+count+" times.";
+        document.getElementById("guessnum").disabled =true;
+        document.getElementById("btn").disabled =true;
+}
+    else {
+        document.getElementById("result").textContent = "Sorry your guess is incorrect!!!!";
+
+        let counter = 10;
+
+        const timeCounter = setInterval(() => {
+        counter--;
+        document.getElementById("try").textContent = "Please Try Again After " + counter + " Seconds";
+        document.getElementById("guessnum").disabled =true;
+        document.getElementById("btn").disabled =true;
+        // Stop the counter and clear the interval when it reaches 0
+        if (counter === 0) {
+            clearInterval(timeCounter);  // Stop the interval
+            document.getElementById("try").textContent = ""; // Clear the message
+            document.getElementById("guessnum").disabled =false;
+            document.getElementById("btn").disabled =false;
+        }
+    }, 1000);
+
+    setTimeout(function(){
+        document.getElementById("result").textContent = "";
+        document.getElementById("guessnum").value = "";
+    }, 10000); // Clear the guess and result after 10 seconds
+
+}
+        }
+    </script>
+</body>
+</html>
