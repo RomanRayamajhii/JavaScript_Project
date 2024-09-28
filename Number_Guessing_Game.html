@@ -110,9 +110,7 @@
 }
     else {
         document.getElementById("result").textContent = "Sorry your guess is incorrect!!!!";
-
         let counter = 10;
-
         const timeCounter = setInterval(() => {
         counter--;
         document.getElementById("try").textContent = "Please Try Again After " + counter + " Seconds";
@@ -126,12 +124,10 @@
             document.getElementById("btn").disabled =false;
         }
     }, 1000);
-
     setTimeout(function(){
         document.getElementById("result").textContent = "";
         document.getElementById("guessnum").value = "";
     }, 10000); // Clear the guess and result after 10 seconds
-
 }
         }
     </script>
