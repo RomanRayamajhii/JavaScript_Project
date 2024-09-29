@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+    <style>
+       
+        body{
+            font-family: Arial, sans-serif;
+            background-color: rgb(222, 222, 240);
+
+
+        }
+        div{
+            background-color: rgb(249, 249, 249);
+           text-align: center;
+            max-width:350px ;
+            margin: auto;
+            padding: 10px;
+            border-radius: 10px; 
+            box-shadow: 5px 5px 11px hsla(0, 0%, 0%, 0.378);
+
+        }
+        h1{
+            color:rgba(4, 178, 200, 0.866);
+        }
+        #number{
+            font-size: 1.5em;
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 10px;
+            border-radius: 10px;
+            width: 50%;
+        }
+        
+label{
+    font-size: 20px;
+}
+#submit{
+    font-size: 20px;
+    margin: 20px;
+    color: rgb(237, 252, 252);
+    background-color: rgb(255, 0, 0);
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+
+}
+p{
+    font-size: 20px;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    margin: 20px;
+    
+}
+    </style>
+
+</head>
+<body>
+<div>
+        <h1>Temperature converter:</h1>
+        <input type="number" name="number" id="number"><br>
+        <input type="radio" name="temp" id="celsius" class="check">
+        <label for="c">celsius ➡️ Fahrenheit </label><br>
+        <input type="radio" name="temp" id="Fahrenheit" class="check"><label for="f">Fahrenheit ➡️ celsius </label> <br>
+        <input type="submit" value="Submit" id="submit" >      
+  <p id="result"></p>
+</div>
+    <script>
+       
+document.getElementById("submit").onclick=function() {
+    let number =document.getElementById("number").value;
+    let result = document.getElementById("result");
+    let celsius = document.getElementById("celsius");
+    let fahrenheit = document.getElementById("Fahrenheit");
+    let temp;
+            temp= number;
+if(celsius.checked){
+    temp=temp*9/5+32;
+    result.textContent= `${temp.toFixed(1)}°F`;
+}
+else if(fahrenheit.checked){
+    temp=(temp-32)*5/9;
+    result.textContent= `${temp.toFixed(1)}°C`;
+
+}
+else if (number=="") {
+    result.textContent = "Please enter a temperature value.";
+    return;
+}
+else{
+  
+   result.textContent="Select a unit."
+}
+        }
+        
+    </script>
+</body>
+</html>
