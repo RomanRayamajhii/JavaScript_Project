@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <style>
+    h1{
+        background: linear-gradient(123deg,rgb(255, 153, 153),rgb(187, 187, 248));
+        border-radius: 10px;
+        padding: 20px;
+        width: 50%;
+        margin: 20px auto;
+    }
+    #one,#two,#three,#four,#five,#six{
+        display: none;
+        margin: 0 auto;
+
+        
+    }
+    body{
+        background-color: hsl(0, 58%, 70%);
+    }
+    #container{
+        width: 80%;
+        margin: 10% auto;
+        border-radius: 10px;
+        padding: 10px;
+        background-color: rgb(255, 255, 255);
+        text-align: center;
+    }
+    #roll{
+        font-size: large;
+        border:none;
+        background-color: hsl(240, 27%, 58%);
+        color: rgb(255, 255, 255);
+        padding: 10px;
+        border-radius: 10px;
+        cursor: pointer;
+        margin: 20px;
+
+
+    }
+    #roll:hover{
+        border:none;
+        background-color: rgb(0, 0, 0);
+        color: rgb(255, 255, 255);
+        }
+        #roll:active{
+            transform: scale(0.9);
+            }
+            #result{
+                font-size: 20px;
+                padding: 10px;
+                border-radius: 10px;
+                margin-top: 15px;
+            }
+            #image{
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+                margin: auto;
+                
+            }
+
+   </style>
+</head>
+<body>
+    <div id="container">
+    <H1>Dice Roller</H1>
+    <button onclick="dice()" id="roll">Roll Dice</button>
+    <p id="result"></p>
+    <div id="image">
+        <img src="/Images/Dice1.jpg" alt="" id="one">
+        <img src="/Images/Dice2.jpg" alt="" id="two">
+        <img src="/Images/Dice3.jpg" alt="" id="three">
+        <img src="/Images/Dice4.jpg" alt="" id="four">
+        <img src="/Images/Dice5.jpg" alt="" id="five">
+        <img src="/Images/Dice6.jpg" alt="" id="six">
+    </div>
+</div>
+    <script>
+        image=[];
+        function dice() {
+            let num = Math.floor(Math.random() * 6) + 1;
+            document.getElementById("result").textContent = "You rolled a " + num;
+                switch(num){
+                    case 1:
+                    document.getElementById("one").style.display="block";
+                   
+                    document.getElementById("roll").disabled=true;
+                    break;
+                    case 2:
+                    document.getElementById("two").style.display="block";
+                    
+                    document.getElementById("roll").disabled=true;
+                    break;
+                    case 3:
+                    document.getElementById("three").style.display="block";
+                    
+                    document.getElementById("roll").disabled=true;
+                    break;
+                    case 4:
+                    document.getElementById("four").style.display="block";
+                    
+                    document.getElementById("roll").disabled=true;
+                    break;
+                    case 5:
+                    document.getElementById("five").style.display="block";
+             
+                    document.getElementById("roll").disabled=true;
+                    break;
+                    case 6:
+                    document.getElementById("six").style.display="block";
+                 
+                    document.getElementById("roll").disabled=true;
+                    break;
+                   }
+                   document.getElementById("roll").textContent = "Wait...";
+            document.getElementById("roll").style.background = "black";
+            document.getElementById("roll").disabled = true;
+                   setTimeout(function(){
+                   
+                    document.getElementById("one").style.display="none";
+                    document.getElementById("two").style.display="none";
+                    document.getElementById("three").style.display="none";
+                    document.getElementById("four").style.display="none";
+                    document.getElementById("five").style.display="none";
+                    document.getElementById("six").style.display="none";
+                    document.getElementById("result").textContent=" ";
+                    document.getElementById("roll").textContent="Roll Dice";
+                    document.getElementById("roll").style.background="hsl(240, 27%, 58%)";
+
+                    document.getElementById("roll").disabled=false;
+                    document.getElementById("roll").disabled = false;
+                    }, 5000);
+                    
+                }
+        
+    </script>
+    
+
+</body>
+</html>
