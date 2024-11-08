@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        #clock{
+            font-size: 4rem;
+            font-weight: bold;
+            color: #333;
+        }
+        h1{
+            font-size: 2rem;
+            font-weight: bold;
+            color: #333;
+        }
+        
+
+
+
+    </style>
+
+</head>
+<body>
+    <h1>Clock</h1>
+    <div id="clock"></div>
+    <script>
+        function updateClock(){
+            const clock=new Date();
+            const hours=clock.getHours().toString().padStart(2,"0");
+            const minutes=clock.getMinutes().toString().padStart(2,"0");
+            const seconds=clock.getSeconds().toString().padStart(2,"0");
+            const timestring =hours+":"+minutes+":"+seconds;
+            document.getElementById("clock").textContent=timestring;
+        }
+        updateClock();
+        setInterval(updateClock,1000);
+
+
+    </script>
+</body>
+</html>
