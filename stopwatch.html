@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        h1 {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        #display {
+            font-size: 4rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        button {
+            font-size: 1rem;
+            font-weight: bold;
+            color: #333;
+            margin: 5px;
+            padding: 10px 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Stopwatch</h1>
+    <div id="display">00:00:00:00</div>
+    <button id="start" onclick="start()">Start</button>
+    <button id="stop" onclick="stop()" disabled>Stop</button>
+    <button id="reset" onclick="reset()">Reset</button>
+    <script>
+        let timer = 0;
+        let interval;
+
+        function start() {
+            if (!interval) { // Only start if interval is not already running
+                interval = setInterval(updateTimer, 10); // Update every 10 milliseconds
+                document.getElementById("start").disabled = true;
+                document.getElementById("stop").disabled = false;
+            }
+        }
+
+        function stop() {
+            clearInterval(interval);
+            interval = null; // Clear interval reference
+            document.getElementById("start").disabled = false;
+            document.getElementById("stop").disabled = true;
+        }
+
+        function reset() {
+            stop(); // Ensure timer is stopped before reset
+            timer = 0;
+            document.getElementById("display").textContent = "00:00:00:00";
+        }
+
+        function updateTimer() {
+            timer += 10; // Increment timer by 10 milliseconds
+            document.getElementById("display").textContent = formatTime(timer);
+        }
+
+        function formatTime(timer) {
+            const hours = Math.floor(timer / (1000 * 60 * 60)).toString().padStart(2, "0");
+            const minutes = Math.floor((timer / (1000 * 60)) %60).toString().padStart(2, "0");
+            const seconds = Math.floor((timer /1000)%60).toString().padStart(2, "0");
+            const milliseconds = Math.floor((timer % 1000) / 10).toString().padStart(2, "0");
+
+            return `${hours}:${minutes}:${seconds}:${milliseconds}`;
+        }
+    </script>
+</body>
+</html>
