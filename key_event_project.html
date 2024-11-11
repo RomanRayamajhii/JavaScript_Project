@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            padding: 0;
+margin: 0;
+        }
+        h1{
+            display: flex;
+            width: 200px;
+            height: 200px;
+        justify-content: center;
+        align-items: center;
+            font-size:7.5em;
+            background-color: coral;
+            position: relative;
+          
+        }
+    </style>
+</head>
+<body>
+    <h1 id="mykey">😊</h1>
+    <script src="./key.js"></script>
+
+    <script>
+        const box1=document.getElementById("mykey");
+document.addEventListener("keyup",event=> 
+{
+   
+    box1.style.background="pink";
+    box1.textContent="😂";
+    console.log(`key up ${event.key}`);
+}
+);
+document.addEventListener("keydown",event=> 
+    {
+        box.style.background="blue";
+    box.textContent="😭";
+        console.log(`key down ${event.key}`) ;
+    }
+    );
+        let x=0;
+        let y=0;
+        const movement =100;
+    const box=document.getElementById("mykey");
+document.addEventListener("keydown",event=> 
+{
+    
+   if(event.key.startsWith("Arrow")){
+    event.preventDefault();
+    switch(event.key){
+        case "ArrowUp":
+            y-=movement;
+            break;
+    
+        case "ArrowDown":
+        y+=movement;
+        break;
+        case "ArrowLeft":
+        x-=movement;
+        break;
+        case "ArrowRight":
+        x+=movement;
+        break;
+   }
+}
+
+
+  
+   box.style.left=x+"px";
+   box.style.top=y+"px";
+   console.log(x,y);
+});
+    </script>
+</body>
+</html>
