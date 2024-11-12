@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .img{
+            display: none;
+        }
+        .btn{
+            background-color: black;
+            color: white;
+        }
+        .btn:hover{
+            background-color: red;
+        }
+       
+
+    </style>
+</head>
+<body>
+    <button class="btn" id="btn">Show</button>
+    <img src="./Images/Dice1.jpg" alt="cat" id="img">
+    <script>
+        let btn=document.getElementById("btn");
+        let img=document.getElementById("img");
+       btn.addEventListener("click",function(event){
+        if(img.style.display==="none"){
+            img.style.display="block";
+            btn.textContent="Hide";
+        }
+        else{
+            img.style.display="none";
+            btn.textContent="Show";
+        }
+       });
+    </script>
+</body>
+</html>
