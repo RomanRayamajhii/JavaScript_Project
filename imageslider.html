@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      img{
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        display: none;
+     } 
+     .slides{
+        height: 500px;
+        width: 500px;
+     }
+     .slide.active{
+        display: block;
+     }
+     .prev{
+        position: absolute;
+        top: 50%;
+        left: 0;
+     }
+     .next{
+        position: absolute;
+        top: 50%;
+        right: 0;
+     }
+     .prev:hover, .next:hover{
+        background-color: rgba(0, 0, 0, 0.5);
+     }
+     .prev:hover, .next:hover{
+        color: white;
+     }
+
+      
+     </style> 
+</head>
+<body>
+    <div class="slider">
+        <div class="slides">
+<img src="/Images/Dice1.jpg" alt="image 1" class="slide">
+<img src="/Images/Dice4.jpg" alt="image 2" class="slide">
+<img src="/Images/Dice5.jpg" alt="image 3" class="slide">
+<img src="/Images/Dice6.jpg" alt="image 4" class="slide">
+        </div>
+        <button class="prev" onclick="prev()">&#10094;</button>
+        <button class="next" onclick="next()">&#10095;</button>
+
+    </div>
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        let index = 0;
+        
+        function next() {
+            slides[index].classList.remove('active');
+            index = (index + 1) % slides.length;  // Loop back to start when reaching end
+            slides[index].classList.add('active');
+        }
+        
+        function prev() {
+            slides[index].classList.remove('active');
+            index = (index - 1 + slides.length) % slides.length;  // Loop to end when reaching start
+            slides[index].classList.add('active');
+        }
+
+        // Show first slide initially
+        slides[index].classList.add('active');
+    </script>
+</body>
+</html>
